@@ -18,3 +18,12 @@ docker-rm:
 
 docker-rmi:
 	docker rmi $(IMG_NAME)
+
+build-mock-onchain:
+	docker exec $(APP_NAME) sh -c "cd mock_onchain && anchor build"
+
+deploy-mock-onchain:
+	docker exec $(APP_NAME) sh -c "cd mock_onchain && anchor deploy"
+
+run-mock-offchain:
+	docker exec $(APP_NAME) sh -c "cd mock_offchain && cargo run"
