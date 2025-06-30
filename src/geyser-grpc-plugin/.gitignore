@@ -1,0 +1,4 @@
+**/container-output
+.env
+*.idea
+/target
