@@ -14,4 +14,8 @@
     - test_accounts --> all the account copied from mainnet required to do a swap in orca. currently it has a whirlpool id for SOL and FartCoin and all the other supporting accounts required to send a swap transaction to whirlpool smart contract
     - solana-validator.json --> configuration to run solana-test-validator locally
     - *.so --> binaries of smartcontracts dubmped from mainnet
-  - command to start test validator locally --> run-solana-test-validator 
+  - to start test validator locally run `make run-solana-test-validator`
+
+### geyser-grpc-plugin
+   - the code is directly cloned from https://github.com/helius-labs/geyser-grpc-plugin
+   - to comile the code run `make build-geyser-grpc-plugin`
