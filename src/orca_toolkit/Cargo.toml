@@ -1,0 +1,14 @@
+[package]
+name = "orca_toolkit"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anchor-lang = { version = "=0.30.1" }
+anchor-spl = { version = "=0.30.1", features = ["metadata", "memo"] }
+borsh = "=0.10.4"
+solana-program = "1.18.1"
+solana-client = "1.18.1"
+solana-sdk  = "1.18.1"
+spl-associated-token-account= "3.0.0"
+solana-transaction-status = "1.18.1"

@@ -27,3 +27,10 @@ deploy-mock-onchain:
 
 run-mock-offchain:
 	docker exec $(APP_NAME) sh -c "cd mock_offchain && cargo run"
+
+build-geyser-grpc-plugin:
+	docker exec $(APP_NAME) sh -c "cd geyser-grpc-plugin && cargo build --release"
+
+run-solana-test-validator:
+	docker exec $(APP_NAME) sh -c "cd test_validator && \
+	solana-test-validator --account-dir test_accounts/ --bpf-program whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc whirlpool.so --reset --geyser-plugin-config solana-validator.json"

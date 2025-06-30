@@ -14,6 +14,8 @@ elif [ "$NETWORK" == "devnet" ]; then
   solana config set --url https://api.devnet.solana.com
 elif [ "$NETWORK" == "testnet" ]; then
   solana config set --url https://api.testnet.solana.com
+elif [ "$NETWORK" == "local" ]; then
+  solana config set --url http://127.0.0.1:8899
 else
   echo "Unknown network: $NETWORK"
   exit 1
