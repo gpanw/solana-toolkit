@@ -1,0 +1,14 @@
+{
+  "libpath": "/usr/src/myapp/geyser-grpc-plugin/target/release/libgeyser_grpc_plugin_server.so",
+  "bind_address": "0.0.0.0:10000",
+  "account_update_buffer_size": 100000,
+  "slot_update_buffer_size": 100000,
+  "block_update_buffer_size": 100000,
+  "transaction_update_buffer_size": 100000,
+  "geyser_service_config": {
+    "grpc_listen_address": "0.0.0.0:10000",
+    "grpc_max_send_message_len": 104857600,
+    "heartbeat_interval_ms": 5000,
+    "subscriber_buffer_size": 1000000
+  }
+}
