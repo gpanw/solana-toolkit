@@ -17,5 +17,5 @@
   - to start test validator locally run `make run-solana-test-validator`
 
 ### geyser-grpc-plugin
-   - the code is directly cloned from https://github.com/helius-labs/geyser-grpc-plugin
+   - the code is directly cloned from https://github.com/jito-foundation/geyser-grpc-plugin/tree/master
    - to comile the code run `make build-geyser-grpc-plugin`
