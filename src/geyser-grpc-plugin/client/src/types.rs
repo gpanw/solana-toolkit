@@ -108,6 +108,10 @@ pub enum SlotUpdateStatus {
     Confirmed,
     Processed,
     Rooted,
+    FirstShredReceived,
+    Completed,
+    CreatedBank,
+    Dead,
 }
 
 impl From<geyser::SlotUpdateStatus> for SlotUpdateStatus {
@@ -116,6 +120,10 @@ impl From<geyser::SlotUpdateStatus> for SlotUpdateStatus {
             geyser::SlotUpdateStatus::Confirmed => Self::Confirmed,
             geyser::SlotUpdateStatus::Processed => Self::Processed,
             geyser::SlotUpdateStatus::Rooted => Self::Rooted,
+            geyser::SlotUpdateStatus::FirstShredReceived => Self::FirstShredReceived,
+            geyser::SlotUpdateStatus::Completed => Self::Completed,
+            geyser::SlotUpdateStatus::CreatedBank => Self::CreatedBank,
+            geyser::SlotUpdateStatus::Dead => Self::Dead,
         }
     }
 }
@@ -133,6 +141,20 @@ impl From<geyser::SlotUpdate> for SlotUpdate {
             parent_slot: proto.parent_slot,
             slot: proto.slot,
             status: SlotUpdateStatus::from(status),
+        }
+    }
+}
+
+pub struct SlotEntryUpdate {
+    pub slot: Slot,
+    pub index: u64,
+}
+
+impl From<geyser::SlotEntryUpdate> for SlotEntryUpdate {
+    fn from(proto: geyser::SlotEntryUpdate) -> Self {
+        Self {
+            slot: proto.slot,
+            index: proto.index,
         }
     }
 }

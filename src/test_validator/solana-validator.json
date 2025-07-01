@@ -3,12 +3,11 @@
   "bind_address": "0.0.0.0:10000",
   "account_update_buffer_size": 100000,
   "slot_update_buffer_size": 100000,
+  "slot_entry_update_buffer_size": 1000000,
   "block_update_buffer_size": 100000,
   "transaction_update_buffer_size": 100000,
   "geyser_service_config": {
-    "grpc_listen_address": "0.0.0.0:10000",
-    "grpc_max_send_message_len": 104857600,
-    "heartbeat_interval_ms": 5000,
+    "heartbeat_interval_ms": 1000,
     "subscriber_buffer_size": 1000000
   }
 }

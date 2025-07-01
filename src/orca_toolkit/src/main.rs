@@ -55,7 +55,7 @@ pub struct WhirlpoolRewardInfo {
 }
 
 #[account]
-#[derive(Default, Debug)]
+#[derive(Debug, Default)]
 pub struct Whirlpool {
     pub whirlpools_config: Pubkey, // 32
     pub whirlpool_bump: [u8; 1],   // 1
@@ -269,53 +269,53 @@ fn test() {
 
     println!("{:?}", decoded);
 
-    let disc = Whirlpool::discriminator();
+    let disc = Whirlpool::DISCRIMINATOR;
     println!("Whirlpool discriminator: {:?}", disc);
 }
 
 fn main() {
     println!("Hello, world!");
-    test();
-    // let rpc_client = RpcClient::new("http://127.0.0.1:8899".to_string());
-    // // let rpc_client = RpcClient::new("https://api.mainnet-beta.solana.com".to_string());
+    // test();
+    let rpc_client = RpcClient::new("http://127.0.0.1:8899".to_string());
+    // let rpc_client = RpcClient::new("https://api.mainnet-beta.solana.com".to_string());
 
-    // let program_id = Pubkey::from_str("whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc").unwrap();
+    let program_id = Pubkey::from_str("whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc").unwrap();
 
-    // let whirlpool_config_id = Pubkey::from_str(
-    //     "2LecshUwdy9xi7meFgHtFJQNSKk4KdTrcpvaB56dP2NQ",
-    //   );
+    let whirlpool_config_id = Pubkey::from_str(
+        "2LecshUwdy9xi7meFgHtFJQNSKk4KdTrcpvaB56dP2NQ",
+      );
 
-    // let whirlpool_pubkey = Pubkey::from_str(
-    //     "C9U2Ksk6KKWvLEeo5yUQ7Xu46X7NzeBJtd9PBfuXaUSM",
-    // ).unwrap();
+    let whirlpool_pubkey = Pubkey::from_str(
+        "C9U2Ksk6KKWvLEeo5yUQ7Xu46X7NzeBJtd9PBfuXaUSM",
+    ).unwrap();
 
-    // println!("Whirlpool: {:?}", whirlpool_pubkey);
+    println!("Whirlpool: {:?}", whirlpool_pubkey);
 
-    // let whirlpool = rpc_client
-    // .get_account(&whirlpool_pubkey)
-    // .expect("Failed to fetch account data");
+    let whirlpool = rpc_client
+    .get_account(&whirlpool_pubkey)
+    .expect("Failed to fetch account data");
 
-    // let whirlpool_data = whirlpool.data;
-    // let relevant_data = &whirlpool_data[8..];
+    let whirlpool_data = whirlpool.data;
+    let relevant_data = &whirlpool_data[8..];
 
-    // let pool_data: Whirlpool = Whirlpool::try_from_slice(&relevant_data).expect("Failed to parse account data");
+    let pool_data: Whirlpool = Whirlpool::try_from_slice(&relevant_data).expect("Failed to parse account data");
 
-    // println!("Pool: {:?}", pool_data);
+    println!("Pool: {:?}", pool_data);
 
-    // let path = Path::new("/root/.config/solana/id.json");
-    // let wallet_keypair = read_keypair_file(path).unwrap();
-    // let wallet_public_key = wallet_keypair.pubkey();
+    let path = Path::new("/root/.config/solana/id.json");
+    let wallet_keypair = read_keypair_file(path).unwrap();
+    let wallet_public_key = wallet_keypair.pubkey();
 
-    // let mut anchor_tx =create_swap_transaction(
-    //     &rpc_client,
-    //     &whirlpool_pubkey,
-    //     &wallet_public_key,
-    //     &wallet_keypair,
-    //     &pool_data,
-    //     &program_id
-    // );
+    let mut anchor_tx =create_swap_transaction(
+        &rpc_client,
+        &whirlpool_pubkey,
+        &wallet_public_key,
+        &wallet_keypair,
+        &pool_data,
+        &program_id
+    );
 
-    // println!("Solana Logs ------------------------------------");
+    println!("Solana Logs ------------------------------------");
 
     // let anchor_signature = rpc_client.send_and_confirm_transaction(&anchor_tx).expect("Transaction failed");
     // println!("Signature: {:?}", anchor_signature);
@@ -330,4 +330,6 @@ fn main() {
     // // }
 
     // println!("Logs: {:?}", logs);
+
+    test();
 }
